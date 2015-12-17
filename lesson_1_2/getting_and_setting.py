@@ -21,4 +21,27 @@ image[0, 0] = (0, 0, 255)
 (b, g, r) = image[0, 0]
 print "Pixel at (0, 0) - Red: {r}, Green: {g}, Blue: {b}".format(r=r, g=g, b=b)
 
+# get the value for the quiz
+(b, g, r) = image[225, 111]
+print "Pixel at x = 111 and y = 225 - Red: {r}, Green {g}, Blue: {b}".format(r=r, g=g, b=b)
+
+# compute the center of the image
+(cX, cY) = (w / 2, h / 2)
+
+# grab the top left corner of the image
+top_left = image[0:cY, 0:cX]
+top_right = image[0:cY, cX:w]
+bottom_right = image[cY:h, cX:w]
+bottom_left = image[cY:h, 0:cX]
+cv2.imshow("Top-Left Corner", top_left)
+cv2.imshow("Top-Right Corner", top_right)
+cv2.imshow("Bottom-Right Corner", bottom_right)
+cv2.imshow("Bottom-Left Corner", bottom_left)
+
+# make the top-left corner of the original image green
+image[0:cY, 0:cX] = (0, 255, 0)
+
+# show the updated original image
+cv2.imshow("Updated", image)
+
 cv2.waitKey(0)
