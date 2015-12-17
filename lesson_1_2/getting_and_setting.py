@@ -12,4 +12,13 @@ image = cv2.imread(args["image"])
 (h, w) = image.shape[:2]
 cv2.imshow("Original", image)
 
+# access the NumPy array representing the image
+(b, g, r) = image[0, 0]
+print "Pixel at (0, 0) - Red: {r}, Green: {g}, Blue: {b}".format(r=r, g=g, b=b)
+
+# change the value of the previously retrieved pixel to be red
+image[0, 0] = (0, 0, 255)
+(b, g, r) = image[0, 0]
+print "Pixel at (0, 0) - Red: {r}, Green: {g}, Blue: {b}".format(r=r, g=g, b=b)
+
 cv2.waitKey(0)
