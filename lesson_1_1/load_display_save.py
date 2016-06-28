@@ -17,3 +17,7 @@ print "channels: %d" % (image.shape[2])
 cv2.imshow("Image", image)
 cv2.waitKey(0)
 
+# save the image, and note that OpenCV handles
+# converting filetypes automatically
+cv2.imwrite("new_image.jpg", image)
+
