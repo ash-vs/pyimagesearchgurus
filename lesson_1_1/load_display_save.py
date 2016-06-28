@@ -1,8 +1,8 @@
-# import packages
+# import the necessary packages
 import argparse
 import cv2
 
-# construct the argument parser and parse arguments
+# construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="Path to the image")
 args = vars(ap.parse_args())
@@ -16,3 +16,8 @@ print "channels: %d" % (image.shape[2])
 # show the image and wait for a keypress
 cv2.imshow("Image", image)
 cv2.waitKey(0)
+
+# save the image, and note that OpenCV handles
+# converting filetypes automatically
+cv2.imwrite("new_image.jpg", image)
+
